@@ -43,17 +43,12 @@ module "vpc" {
     "kubernetes.io/role/internal-elb" = 1
   }
 }
-resource "aws_iam_role" "eks_role" {
-  name = "${var.cluster_name}-eks-role"
 
-  assume_role_policy = data.aws_iam_policy_document.eks_assume_role_policy.json
-}
-resource "aws_iam_role_policy_attachment" "eks_role_policy" {
-  role       = aws_iam_role.eks_role.name
-  policy_arn = data.aws_iam_policy.eks_policy.arn
-}
 resource "aws_eks_access_entry" "my_access" {
   cluster_name    = var.cluster_name
   principal_arn   = "arn:aws:iam::654654270471:user/cluster"
   type            = "STANDARD"
-    }
+  }
+                        
+
+                        
