@@ -43,8 +43,10 @@ module "vpc" {
     "kubernetes.io/role/internal-elb" = 1
   }
 }
-resource "aws_eks_access_entry" "my-access" {
+
+resource "aws_eks_access_entry" "my-access-entry" {
   cluster_name  = var.cluster_name
-  principal_arn = "arn:aws:iam::654654270471:user/cluster-admin"
+  principal_arn = "arn:aws:iam::654654270471:user/cluster"
   type          = "STANDARD"
 }
+
